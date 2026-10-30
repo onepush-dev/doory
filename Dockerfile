@@ -19,7 +19,7 @@ RUN sed -i \
       -e 's#^set_real_ip_from 127.0.0.1;#set_real_ip_from 127.0.0.1;\nset_real_ip_from 100.64.0.0/10;#' \
       /tmp/doory.conf \
     && mv /tmp/doory.conf /etc/nginx/conf.d/doory.conf \
-    && grep -q "127.0.0.1:8000" /etc/nginx/conf.d/doory.conf && ! grep -q "doory-api" /etc/nginx/conf.d/doory.conf \
+    && grep -q "server 127.0.0.1:8000;" /etc/nginx/conf.d/doory.conf && ! grep -q " resolve;" /etc/nginx/conf.d/doory.conf \
     && nginx -t
 COPY railway/start-all.sh /usr/local/bin/start-all.sh
 RUN chmod 755 /usr/local/bin/start-all.sh
