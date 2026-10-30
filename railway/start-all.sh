@@ -5,7 +5,7 @@ MEDIA="${MEDIA_ROOT:-/app/media}"; EXPORTS="${EXPORT_STORAGE_ROOT:-/app/exports}
 mkdir -p "$MEDIA" "$EXPORTS"
 chown -R doory:doory "$MEDIA" "$EXPORTS" 2>/dev/null || true
 chmod a+rX "$MEDIA"
-run_as() { setpriv --reuid=10001 --regid=10001 --init-groups -- "$@"; }
+run_as() { HOME=/app setpriv --reuid=10001 --regid=10001 --init-groups -- "$@"; }
 cd /app
 
 # API: the upstream entrypoint migrates, creates the cache table and collects static before gunicorn.
