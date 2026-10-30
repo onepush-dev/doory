@@ -1,6 +1,6 @@
 # Doory — open-source Canva alternative with real-time co-editing. Deploy on Railway with one click.
 
-[Doory](https://github.com/shaongitbd/doory) is a self-hosted design editor (templates, PDF export, live collaboration). This template packages the official `doory-backend` and `doory-frontend` 0.2.0 images into one Railway service (`ghcr.io/onepush-dev/doory:0.2.0`): nginx serves the SPA and proxies to the Django API (gunicorn) and the realtime WebSocket server (uvicorn). They share one media volume, as in upstream docker-compose (Railway volumes can't be shared between services). Postgres 16 holds the data.
+[Doory](https://github.com/shaongitbd/doory) is a self-hosted design editor (templates, PDF export, live collaboration). This template packages the official `doory-backend` and `doory-frontend` 0.2.0 images into one Railway service (`ghcr.io/onepush-dev/doory:0.2.0`): nginx serves the SPA and proxies to the Django API (gunicorn) and the realtime WebSocket server (uvicorn). They share one media volume, as in upstream docker-compose (Railway volumes can't be shared between services). Postgres 18 (Railway postgres-ssl:18) holds the data.
 
 ## Services
 | Service | Image | Port | Volume |
